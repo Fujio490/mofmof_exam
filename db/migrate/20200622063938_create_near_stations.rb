@@ -4,6 +4,7 @@ class CreateNearStations < ActiveRecord::Migration[5.2]
       t.string :track_name
       t.string :station_name
       t.integer :minute_walk
+      t.references :building, foreign_key: true
       t.timestamps
     end
   end

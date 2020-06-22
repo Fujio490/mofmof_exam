@@ -26,8 +26,10 @@ ActiveRecord::Schema.define(version: 2020_06_22_063938) do
     t.string "track_name"
     t.string "station_name"
     t.integer "minute_walk"
+    t.integer "building_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_near_stations_on_building_id"
   end
 
 end
