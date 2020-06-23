@@ -1,4 +1,6 @@
 class BuildingsController < ApplicationController
+    before_action :set_building, only: [:show, :edit, :update, :destroy]
+    before_action :set_near_stations, only: [:show, :edit, :update, :destroy]
     def index
         @buildings = Building.all
     end
@@ -9,22 +11,27 @@ class BuildingsController < ApplicationController
         end
     end
     def create
-        @building = Building.new( #params )
-        if @property.save
-            redirect_to propaties_path
+        @building = Building.new(building_params)
+        if @building.save
+            redirect_to buildings_path
+        else
+            render :new
         end
     end
     def show
-        
     end
     def edit
-        
     end
     def update
-        
+        if @building.update(building_params)
+            redirect_to buildings_path
+        else
+            render :edit
+        end
     end
     def destroy
-        
+        @building.destroy
+        redirect_to buildings_path
     end
     private
     def building_params
@@ -36,5 +43,11 @@ class BuildingsController < ApplicationController
             :note,
             near_station_attributes: [:track_name, :station_name, :minutes_walk]
         )
+    end
+    def set_building
+        @building = Building.find(params[:id])
+    end
+    def set_near_building
+        @near_stations = @building.near_stations
     end
 end
