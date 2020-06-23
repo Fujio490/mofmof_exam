@@ -5,4 +5,5 @@ class Building < ApplicationRecord
     validates :address, presence: true
     validates :age, presence: true
     validates :note, presence: true
+    accepts_nested_attributes_for :near_stations
 end
