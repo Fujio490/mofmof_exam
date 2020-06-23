@@ -41,13 +41,13 @@ class BuildingsController < ApplicationController
             :address,
             :age,
             :note,
-            near_station_attributes: [:track_name, :station_name, :minutes_walk]
+            near_stations_attributes: {}
         )
     end
     def set_building
         @building = Building.find(params[:id])
     end
-    def set_near_building
+    def set_near_stations
         @near_stations = @building.near_stations
     end
 end

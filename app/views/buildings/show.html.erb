@@ -4,7 +4,7 @@
 </p>
 <p>    
     <span class="bold">賃料：</span>
-    <%= @building.rent %>
+    <%= @building.rent %>円
 </p>
 <p>
     <span class="bold">住所：</span>
@@ -12,19 +12,18 @@
 </p>
 <p>    
     <span class="bold">築年数</span>
-    <%= @building.age %>
+    <%= @building.age %>年
 </p>
 <p>    
     <span class="bold">備考</span>
     <%= @building.note %>
 </p>
 <hr>
-<% if near_stations.present? %>
 <% n = 0 %>
-<% near_stations.each do |near_station| %>
+<% @near_stations.each do |near_station| %>
     <h4>
         最寄り駅
-        <%= i += 1 %>
+        <%= n += 1 %>
     </h4>
     <p>
         <span class="bold">路線名</span>
