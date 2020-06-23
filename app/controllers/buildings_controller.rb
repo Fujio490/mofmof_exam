@@ -23,4 +23,15 @@ class BuildingsController < ApplicationController
     def destroy
         
     end
+    private
+    def building_params
+        params.require(:building).permit(
+            :name,
+            :rent,
+            :address,
+            :age,
+            :note,
+            near_station_attributes: [:track_name, :station_name, :minutes_walk]
+        )
+    end
 end
