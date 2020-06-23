@@ -4,6 +4,9 @@ class BuildingsController < ApplicationController
     end
     def new
         @building = Building.new
+        2.times do
+            @building.near_stations.build
+        end
     end
     def create
         @building = Building.new( #params )
