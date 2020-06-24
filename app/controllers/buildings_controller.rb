@@ -21,6 +21,9 @@ class BuildingsController < ApplicationController
     def show
     end
     def edit
+        2.times do
+            @building.near_stations.build
+        end
     end
     def update
         if @building.update(building_params)
